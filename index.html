@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>STEAMKidz — Where Creativity Meets Technology</title>
+<meta name="description" content="STEAM learning for kids, families, and educators. Science, Technology, Engineering, Arts, and Math — hands-on, safe, and privacy-first. NRV and beyond." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0f2d5e;--navy2:#1a4080;--blue:#2563eb;--blue-pale:#dbeafe;
+  --pink:#db2777;--pink-pale:#fce7f3;--pink-light:#f472b6;
+  --green:#16a34a;--green-pale:#dcfce7;
+  --purple:#7c3aed;--orange:#ea580c;--orange-pale:#ffedd5;
+  --bg:#f8f4ff;--white:#fff;--surface:#f0e8ff;
+  --text:#0f172a;--muted:#475569;
+  --sans:'Nunito',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+nav{background:linear-gradient(90deg,var(--navy) 0%,#2d1b69 100%);display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;position:sticky;top:0;z-index:100;}
+.nav-brand{font-weight:900;font-size:1.35rem;color:#fff;letter-spacing:-0.02em;}
+.nav-brand em{color:#f472b6;font-style:normal;}
+.nav-links{display:flex;gap:1.5rem;list-style:none;}
+.nav-links a{font-size:0.82rem;font-weight:700;color:rgba(255,255,255,0.7);transition:color 0.2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:#f472b6;color:var(--navy) !important;padding:0.45rem 1rem;border-radius:999px;font-weight:800 !important;}
+.nav-toggle{display:none;background:none;border:2px solid rgba(255,255,255,0.3);color:#fff;padding:0.4rem 0.75rem;cursor:pointer;border-radius:6px;font-weight:700;font-size:0.78rem;}
+@media(max-width:720px){
+  .nav-toggle{display:block;}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#1e1060;padding:1rem 1.5rem;}
+  .nav-links.open{display:flex;}
+  .nav-links li{padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);}
+}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#2d1b69 50%,#4a1060 100%);padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(244,114,182,0.12) 0%,transparent 50%);}
+.hero-inner{max-width:720px;margin:0 auto;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(244,114,182,0.15);border:1px solid rgba(244,114,182,0.3);color:#f9a8d4;font-size:0.75rem;font-weight:700;padding:0.35rem 1rem;border-radius:999px;margin-bottom:1.5rem;}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em;}
+.hero h1 span{color:#f472b6;}
+.hero-sub{font-size:1.05rem;font-weight:500;color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto 2rem;line-height:1.75;}
+.btn{display:inline-block;font-weight:800;font-size:0.92rem;padding:0.85rem 1.75rem;border-radius:999px;margin:0.25rem;transition:transform 0.15s;}
+.btn:hover{transform:translateY(-2px);}
+.btn-pink{background:#f472b6;color:var(--navy);}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3);}
+.hero-privacy{display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.45);margin-top:1.5rem;}
+.pdot{width:7px;height:7px;border-radius:50%;background:#4ade80;}
+.section{padding:4.5rem 2rem;max-width:1060px;margin:0 auto;}
+.eyebrow{font-family:var(--mono);font-size:0.62rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--pink);margin-bottom:0.5rem;}
+h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;color:var(--navy);letter-spacing:-0.02em;margin-bottom:0.75rem;}
+.section-sub{color:var(--muted);font-size:0.975rem;max-width:560px;margin-bottom:2.5rem;font-weight:500;line-height:1.75;}
+.steam-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;}
+.steam-card{background:var(--white);border-radius:16px;padding:1.75rem;border:2px solid var(--surface);box-shadow:0 2px 12px rgba(0,0,0,0.05);}
+.sl{font-size:2.8rem;font-weight:900;line-height:1;margin-bottom:0.4rem;}
+.cs{color:#2563eb;}.ct{color:#7c3aed;}.ce{color:#ea580c;}.cm{color:#16a34a;}
+.steam-card h3{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:0.35rem;}
+.steam-card p{font-size:0.875rem;color:var(--muted);line-height:1.7;font-weight:500;}
+.arts-card{background:linear-gradient(135deg,var(--pink) 0%,var(--purple) 100%);border:none !important;grid-column:1/-1;display:flex;gap:1.5rem;align-items:flex-start;padding:2rem;}
+.arts-card .sl{color:#fff;font-size:3.5rem;}
+.arts-card h3{color:#fff !important;font-size:1.1rem;}
+.arts-card p{color:rgba(255,255,255,0.87) !important;}
+.dark-band{background:linear-gradient(135deg,var(--navy) 0%,#2d1b69 100%);padding:4.5rem 2rem;}
+.dark-inner{max-width:1060px;margin:0 auto;}
+.dark-band .eyebrow{color:#f9a8d4;}
+.dark-band h2{color:#fff;}
+.dark-band .section-sub{color:rgba(255,255,255,0.6);}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem;}
+.pillar{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:1.75rem;}
+.pillar-icon{font-size:1.75rem;margin-bottom:0.75rem;display:block;}
+.pillar h3{font-size:1rem;font-weight:800;color:#fff;margin-bottom:0.35rem;}
+.pillar p{font-size:0.86rem;color:rgba(255,255,255,0.6);line-height:1.65;font-weight:500;}
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem;}
+.who-card{background:var(--white);border-radius:14px;padding:1.4rem;text-align:center;border:2px solid var(--surface);}
+.we{font-size:1.75rem;margin-bottom:0.6rem;display:block;}
+.who-card h3{font-size:0.88rem;font-weight:800;color:var(--navy);margin-bottom:0.25rem;}
+.who-card p{font-size:0.78rem;color:var(--muted);font-weight:500;}
+.privacy-band{background:var(--green-pale);border-top:3px solid #86efac;border-bottom:3px solid #86efac;padding:3rem 2rem;text-align:center;}
+.privacy-inner{max-width:600px;margin:0 auto;}
+.privacy-band h2{color:var(--green);font-size:clamp(1.4rem,3vw,2rem);}
+.privacy-band p{font-size:0.95rem;color:#166534;line-height:1.75;font-weight:500;margin:0.75rem 0;}
+.pchecks{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:1rem;}
+.pck{display:flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:700;color:var(--green);}
+.pcd{width:6px;height:6px;border-radius:50%;background:var(--green);}
+.net-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;}
+.net-card{background:var(--white);border-radius:12px;padding:1.4rem;border:2px solid var(--surface);}
+.net-tag{font-family:var(--mono);font-size:0.58rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--pink);margin-bottom:0.4rem;display:block;}
+.net-card h3{font-size:0.92rem;font-weight:800;color:var(--navy);margin-bottom:0.3rem;}
+.net-card p{font-size:0.8rem;color:var(--muted);line-height:1.6;font-weight:500;}
+.st{display:inline-block;margin-top:0.6rem;font-size:0.68rem;font-weight:700;padding:0.18rem 0.55rem;border-radius:999px;}
+.live{background:var(--green-pale);color:var(--green);}
+.building{background:var(--orange-pale);color:var(--orange);}
+.cta-band{background:linear-gradient(135deg,var(--pink) 0%,var(--purple) 100%);padding:4rem 2rem;text-align:center;}
+.cta-band h2{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:900;color:#fff;margin-bottom:0.75rem;}
+.cta-band p{color:rgba(255,255,255,0.82);font-size:0.95rem;margin-bottom:2rem;font-weight:500;}
+footer{background:var(--navy);padding:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.fb{font-weight:900;font-size:1rem;color:#fff;}
+.fb em{color:#f472b6;font-style:normal;}
+.fc{font-family:var(--mono);font-size:0.55rem;color:rgba(255,255,255,0.25);}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 0.6s,transform 0.6s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:860px){
+  .steam-grid,.pillars-grid,.who-grid,.net-grid{grid-template-columns:1fr 1fr;}
+  .arts-card{flex-direction:column;}
+  .section,.dark-inner{padding:3rem 1.5rem;}
+  .dark-band,.privacy-band,.cta-band{padding:3rem 1.5rem;}
+  footer{flex-direction:column;text-align:center;padding:1.5rem;}
+}
+@media(max-width:520px){.steam-grid,.pillars-grid,.who-grid,.net-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-brand"><em>STEAM</em>Kidz</div>
+  <button class="nav-toggle" id="navToggle">Menu</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#steam">What is STEAM</a></li>
+    <li><a href="#pillars">What We Do</a></li>
+    <li><a href="#who">Who It's For</a></li>
+    <li><a href="https://stemkidz.biz" target="_blank" rel="noopener">STEMKidz →</a></li>
+    <li><a href="mailto:callmelink@benlinkous.com" class="nav-cta">Get Involved</a></li>
+  </ul>
+</nav>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🎨 NRV &amp; Beyond · K-12 &amp; Lifelong Learners</div>
+    <h1>Where <span>Creativity</span><br>Meets Technology</h1>
+    <p class="hero-sub">STEAM adds Arts to Science, Technology, Engineering, and Math — because the best problem solvers are also creative thinkers, and the best artists understand how things work.</p>
+    <div>
+      <a href="#steam" class="btn btn-pink">What is STEAM?</a>
+      <a href="#pillars" class="btn btn-ghost">What We Offer</a>
+    </div>
+    <div class="hero-privacy"><span class="pdot"></span>No data collected · No tracking · No ads · Safe for kids</div>
+  </div>
+</div>
+<section class="section" id="steam">
+  <div class="eyebrow">What is STEAM</div>
+  <h2>Five Disciplines. One Creative Mindset.</h2>
+  <p class="section-sub">STEAM takes the four STEM disciplines and adds something essential — the Arts. Because creativity, design, and expression make science and technology truly human.</p>
+  <div class="steam-grid reveal">
+    <div class="steam-card"><div class="sl cs">S</div><h3>Science</h3><p>Understanding the natural world through curiosity and honest inquiry. Science teaches us to ask why — and keep asking.</p></div>
+    <div class="steam-card"><div class="sl ct">T</div><h3>Technology</h3><p>Tools and systems we build to solve problems — from computer basics to coding to AI. The fastest-evolving field in modern life.</p></div>
+    <div class="steam-card"><div class="sl ce">E</div><h3>Engineering</h3><p>Designing and building real solutions. Engineering bridges knowledge and action through creativity and iteration.</p></div>
+    <div class="steam-card"><div class="sl cm">M</div><h3>Math</h3><p>The language of patterns, logic, and relationships. Math is the foundation every other STEAM discipline builds on.</p></div>
+    <div class="steam-card arts-card">
+      <div class="sl" style="color:#fff;">A</div>
+      <div><h3>Arts — The STEAM Difference</h3><p>Design thinking, visual communication, music, creative writing, and expression. The Arts make technology intuitive, architecture beautiful, and engineering truly human. The world's greatest innovators were also deeply creative — STEAM honors that truth.</p></div>
+    </div>
+  </div>
+</section>
+<div class="dark-band" id="pillars">
+  <div class="dark-inner">
+    <div class="eyebrow">What We Offer</div>
+    <h2>Tech + Creativity. Together.</h2>
+    <p class="section-sub">Hands-on STEAM learning that brings technical skills and creative thinking together — because neither is complete without the other.</p>
+    <div class="pillars-grid reveal">
+      <div class="pillar"><span class="pillar-icon">💻</span><h3>Safe Computer Learning</h3><p>Private, age-appropriate introduction to computers, coding, and digital tools. No tracking, no accounts, no data.</p></div>
+      <div class="pillar"><span class="pillar-icon">🎨</span><h3>Digital Art &amp; Design</h3><p>Creative projects using technology — digital illustration, graphic design basics, and visual storytelling.</p></div>
+      <div class="pillar"><span class="pillar-icon">🚁</span><h3>Drones &amp; Aerial Tech</h3><p>How drones work and responsible flight — where engineering and real-world application meet.</p></div>
+      <div class="pillar"><span class="pillar-icon">🎵</span><h3>Music &amp; Technology</h3><p>How music connects to math, coding, and engineering — from theory to simple digital music creation.</p></div>
+      <div class="pillar"><span class="pillar-icon">🧱</span><h3>Game-Based Engineering</h3><p>Minecraft Education and creative coding tools that teach design thinking through play.</p></div>
+      <div class="pillar"><span class="pillar-icon">🚀</span><h3>Rocketry &amp; Design</h3><p>Model rocketry with a creative twist — from propulsion physics to building and decorating your rocket.</p></div>
+    </div>
+  </div>
+</div>
+<section class="section" id="who">
+  <div class="eyebrow">Who It's For</div>
+  <h2>Creativity Doesn't Have an Age Limit.</h2>
+  <p class="section-sub">STEAMKidz is for anyone who believes that thinking differently is a superpower — at any age.</p>
+  <div class="who-grid reveal">
+    <div class="who-card"><span class="we">🧒</span><h3>Elementary Students</h3><p>First steps into creative tech — fun, safe, hands-on</p></div>
+    <div class="who-card"><span class="we">📚</span><h3>Middle &amp; High School</h3><p>Deeper dives into design, coding, and creative projects</p></div>
+    <div class="who-card"><span class="we">👨‍👩‍👧</span><h3>Parents &amp; Families</h3><p>Learn and create together — no experience needed</p></div>
+    <div class="who-card"><span class="we">🎓</span><h3>Educators &amp; JROTC</h3><p>STEAM resources aligned to CTE and arts objectives</p></div>
+  </div>
+</section>
+<div class="privacy-band">
+  <div class="privacy-inner">
+    <h2>🔒 Privacy First. Always.</h2>
+    <p>STEAMKidz was built with kids in mind — which means privacy comes first. No data collection, no ads, no tracking. A safe space to create and learn.</p>
+    <div class="pchecks">
+      <div class="pck"><span class="pcd"></span>No data collection</div>
+      <div class="pck"><span class="pcd"></span>No ads</div>
+      <div class="pck"><span class="pcd"></span>No tracking</div>
+      <div class="pck"><span class="pcd"></span>No accounts required</div>
+      <div class="pck"><span class="pcd"></span>Safe for all ages</div>
+    </div>
+  </div>
+</div>
+<section class="section">
+  <div class="eyebrow">Our Network</div>
+  <h2>Part of a Bigger Mission</h2>
+  <p class="section-sub">STEAMKidz is part of a growing STEM and STEAM ecosystem built for the NRV and beyond.</p>
+  <div class="net-grid reveal">
+    <div class="net-card"><span class="net-tag">STEM for Kids</span><h3>stemkidz.biz</h3><p>The sister site — tech STEM for kids with coding, drones, rocketry, and Minecraft Education.</p><span class="st live">Live</span></div>
+    <div class="net-card"><span class="net-tag">STEAM Pathway</span><h3>link2steam.com</h3><p>The broader STEAM resource hub — pathways and purpose behind the mission.</p><span class="st building">Building</span></div>
+    <div class="net-card"><span class="net-tag">Cybersecurity</span><h3>link2cyber.com</h3><p>Free 80-day cybersecurity bootcamp — zero to job-ready for teens and adults.</p><span class="st live">Live</span></div>
+    <div class="net-card"><span class="net-tag">IT for Everyone</span><h3>link2it.io</h3><p>Technology without a CS degree — AI, web dev, and practical IT skills.</p><span class="st live">Live</span></div>
+    <div class="net-card"><span class="net-tag">NRV Community</span><h3>linksnrv.com</h3><p>Local life in the New River Valley — the community STEAMKidz is rooted in.</p><span class="st live">Live</span></div>
+    <div class="net-card"><span class="net-tag">The Hub</span><h3>benlinkous.com</h3><p>The personal site connecting all 22 projects from Ben Linkous in Pulaski, Virginia.</p><span class="st live">Live</span></div>
+  </div>
+</section>
+<div class="cta-band">
+  <h2>Ready to create something?</h2>
+  <p>Whether you're a parent, educator, or curious kid — there's a place for you here.</p>
+  <a href="mailto:callmelink@benlinkous.com" class="btn btn-pink" style="background:white;color:#db2777;">Get in Touch</a>
+</div>
+<footer>
+  <div class="fb"><em>STEAM</em>Kidz · steamkidz.biz</div>
+  <div class="fc">© <span id="yr"></span> Ben Linkous · Pulaski, Virginia · No data collected</div>
+</footer>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.getElementById('navToggle').addEventListener('click',function(){
+  const n=document.getElementById('navLinks');n.classList.toggle('open');
+  this.textContent=n.classList.contains('open')?'Close':'Menu';
+});
+const obs=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
